@@ -1,26 +1,24 @@
 // --- IMPORT FIREBASE FUNCTIONS ---
 // Accessing the libraries we loaded in HTML
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+const { initializeApp, getFirestore, collection, addDoc, getDocs, query, where, deleteDoc, doc, updateDoc } = window.firebase;
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// --------------------------------------------------------------
+// 🔴 PASTE YOUR FIREBASE CONFIG HERE 🔴
+// (Copy this object from your Firebase Console Project Settings)
 const firebaseConfig = {
-  apiKey: "AIzaSyCl2XGQTBlp3rligYirYo06CZjUNHC7GIo",
-  authDomain: "online-notes-of-life.firebaseapp.com",
-  projectId: "online-notes-of-life",
-  storageBucket: "online-notes-of-life.firebasestorage.app",
-  messagingSenderId: "548624544306",
-  appId: "1:548624544306:web:8892c90a9f574b5645422b",
-  measurementId: "G-79JYF5NVV8"
+  apiKey: "AIzaSyD-YOUR-API-KEY-HERE",
+  authDomain: "your-project.firebaseapp.com",
+  projectId: "your-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456:web:abcdef"
 };
+// --------------------------------------------------------------
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app);
+
 // --- DOM ELEMENTS ---
 const views = {
     login: document.getElementById('login-view'),
